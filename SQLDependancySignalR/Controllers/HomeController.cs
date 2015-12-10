@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLDependancySignalR.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace SQLDependancySignalR.Controllers
 {
     public class HomeController : Controller
     {
+        Votenotifications vn = null;
         public ActionResult Index()
         {
             return View();
@@ -25,6 +27,13 @@ namespace SQLDependancySignalR.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Votes()
+        {
+            vn = new Votenotifications();
+            var a = vn.getVoteCount();
+            return View(a);
         }
     }
 }
