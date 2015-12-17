@@ -10,6 +10,7 @@ namespace SQLDependancySignalR.Controllers
     public class HomeController : Controller
     {
         Votenotifications vn = null;
+        JobInfoRepository objRepo = new JobInfoRepository();
         public ActionResult Index()
         {
             return View();
@@ -17,9 +18,10 @@ namespace SQLDependancySignalR.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+           var a= objRepo.GetData();
+            // ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View(a);
         }
 
         public ActionResult Contact()
