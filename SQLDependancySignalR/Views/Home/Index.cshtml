@@ -31,7 +31,14 @@
             getData();
         });
 
-        function getData() {
+        function getData()
+        {
+            //alert(1);
+            $('#Main').empty().load('About');
+        }
+
+
+        function getData2() {
             var $tbl = $('#tblJobInfo');
             $.ajax({
                 url: '/Job',
@@ -54,6 +61,7 @@
 </head>
 <body>
     <div>
+        <div id="Main"></div>
         <table id="tblJobInfo" style="text-align:center;margin-left:10px"></table>
     </div>
 </body>

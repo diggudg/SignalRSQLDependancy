@@ -17,5 +17,6 @@ namespace SQLDependancySignalR.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public string VoteGivenBy { get; set; }
+        public string Band { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace SQLDependancySignalR
     public class JobInfoRepository
     {
         SignalREntities sr = new SignalREntities();
-
+        //this comment 
         public IEnumerable<JobInfo> GetData()
         {
 
@@ -55,6 +55,18 @@ namespace SQLDependancySignalR
         public List<FinalVoting> GetJob()
         {
             List<FinalVoting> a = new List<FinalVoting>();
+            FinalVoting b = new FinalVoting();
+            var totalvoteE = sr.Votes.Where(v => v.Band == "E").ToList().GroupBy(g=>g.UserId);
+            //var totalcount = 
+            foreach(var total in totalvoteE)
+            {
+                var c = new FinalVoting
+                {
+                    TotalVotes= total.Count(),
+                    EmpCode=total.Key.ToString()
+                };
+                a.Add(c);
+            }
             return a;
         }
         private void dependency_OnChange(object sender, SqlNotificationEventArgs e)
@@ -64,6 +76,7 @@ namespace SQLDependancySignalR
 
 
     }
+
 
     public class JobInfo
     {

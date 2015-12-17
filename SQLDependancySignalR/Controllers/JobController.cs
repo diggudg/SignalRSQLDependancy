@@ -12,9 +12,15 @@ namespace SQLDependancySignalR.Controllers
     {
         JobInfoRepository objRepo = new JobInfoRepository();
         [Route("Job")]
-        public IEnumerable<JobInfo> Get()
+        //public IEnumerable<JobInfo> Get()
+        //{
+        //    // return objRepo.GetData();
+    
+        //}
+        public IEnumerable<FinalVoting> Get()
         {
-            return objRepo.GetData();
+            // return objRepo.GetData();
+            return objRepo.GetJob();
         }
     }
 }
